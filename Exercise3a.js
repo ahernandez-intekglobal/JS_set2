@@ -15,7 +15,8 @@ function ceasarCipher(match, p1,p2,p3, offset, string){
       }
     }
     if (p2){
-      return String(Number(p2) + 1);
+      let myNum = Number(p2);
+      return String(myNum === 9 ? 0 : myNum+1);
     }
     if (p3){
       return p3
@@ -23,4 +24,4 @@ function ceasarCipher(match, p1,p2,p3, offset, string){
   }
   
   let shiftCharExamples = ["aBc","xyz","aK89_1"];
-  console.log(shiftCharExamples.map(example => example.replace(/([a-zA-Z])|(\d+)|(.)/gi, ceasarCipher)))
+  console.log(shiftCharExamples.map(example => example.replace(/([a-zA-Z])|(\d)/gi, ceasarCipher)))
